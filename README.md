@@ -7,7 +7,7 @@
 
 **Type legend:** 🟢 public source / open-source · 🔬 research (paper / benchmark / dataset / framework) · 🟠 commercial with open components · ⚠️ restrictive, non-commercial, or unclear/no license — check before use.
 
-GitHub-hosted entries show static **★ stars** and **last-commit** snapshots; refresh them with `python3 scripts/update_github_metrics.py` before release. Most recently refreshed entry: 2026-09-27. Hugging Face model entries show license, access, and artifact metadata. Ordering within a section favors flagship and actively maintained projects.
+GitHub-hosted entries show static **★ stars** and **last-commit** snapshots; refresh them with `python3 scripts/update_github_metrics.py` before release. Most recently refreshed entry: 2026-09-29. Hugging Face model entries show license, access, and artifact metadata. Ordering within a section favors flagship and actively maintained projects.
 
 ---
 
@@ -242,6 +242,8 @@ Securing the AI agents themselves — auditing coding agents (Claude Code, Codex
   - **Related:** [Prismor](https://github.com/PrismorSec/prismor) · [mcp-context-protector](https://github.com/trailofbits/mcp-context-protector)
 - **[sofagent](https://github.com/KongFangXun/sofagent)** 🟢 — Commit-time audit and governance suite for AI coding agents that scans git diffs against deterministic rules, records local audit history, and exposes MCP tools for governance aggregation. — **note:** HMAC signing is optional, while local hooks, configuration, and key material remain accessible to same-user agents; the default setup is not fail-closed and Git hooks can be bypassed, so treat the history as local audit evidence rather than a hardened tamper-proof boundary. *(★ 42 · updated 2026-09-03)*
   - **Related:** [Pipelock](https://github.com/luckyPipewrench/pipelock)
+- **[Tenuo](https://github.com/tenuo-ai/tenuo)** 🟢🟠 — Capability-based authorization for agent tool calls: signed, holder-bound warrants scope tools and arguments per task, verify offline at the tool boundary, and only narrow across delegation hops (MCP, A2A, agent frameworks). — **note:** the Rust core, SDKs, and authorizer sidecar are Apache-2.0; the managed control plane (Tenuo Cloud) is commercial. *(★ 96 · updated 2026-09-28)*
+  - **Related:** [Agentgateway](https://github.com/agentgateway/agentgateway) · [AgentLock](https://github.com/webpro255/agentlock)
 
 ---
 

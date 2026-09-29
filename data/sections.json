@@ -2402,6 +2402,35 @@
                 "updated": "2026-09-03",
                 "snapshot": "2026-09-04"
               }
+            },
+            {
+              "name": "Tenuo",
+              "repo": "tenuo-ai/tenuo",
+              "desc": "Capability-based authorization for agent tool calls: signed, holder-bound warrants scope tools and arguments per task, verify offline at the tool boundary, and only narrow across delegation hops (MCP, A2A, agent frameworks).",
+              "license": "Apache-2.0",
+              "status": [
+                "open_source",
+                "commercial_open"
+              ],
+              "flags": [
+                "commercial_features"
+              ],
+              "note": "\u2014 **note:** the Rust core, SDKs, and authorizer sidecar are Apache-2.0; the managed control plane (Tenuo Cloud) is commercial.",
+              "related": [
+                {
+                  "label": "Agentgateway",
+                  "url": "https://github.com/agentgateway/agentgateway"
+                },
+                {
+                  "label": "AgentLock",
+                  "url": "https://github.com/webpro255/agentlock"
+                }
+              ],
+              "metrics": {
+                "stars": 96,
+                "updated": "2026-09-28",
+                "snapshot": "2026-09-29"
+              }
             }
           ]
         }
