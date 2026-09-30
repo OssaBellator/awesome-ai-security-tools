@@ -7,7 +7,7 @@
 
 **Type legend:** 🟢 public source / open-source · 🔬 research (paper / benchmark / dataset / framework) · 🟠 commercial with open components · ⚠️ restrictive, non-commercial, or unclear/no license — check before use.
 
-GitHub-hosted entries show static **★ stars** and **last-commit** snapshots; refresh them with `python3 scripts/update_github_metrics.py` before release. Most recently refreshed entry: 2026-09-27. Hugging Face model entries show license, access, and artifact metadata. Ordering within a section favors flagship and actively maintained projects.
+GitHub-hosted entries show static **★ stars** and **last-commit** snapshots; refresh them with `python3 scripts/update_github_metrics.py` before release. Most recently refreshed entry: 2026-09-30. Hugging Face model entries show license, access, and artifact metadata. Ordering within a section favors flagship and actively maintained projects.
 
 ---
 
@@ -120,6 +120,8 @@ Securing the AI agents themselves — auditing coding agents (Claude Code, Codex
   - **Related:** [MCP-Security-Checklist](https://github.com/slowmist/MCP-Security-Checklist) · [sast-skills](https://github.com/utkusen/sast-skills)
 - **[Sandbox Probe](https://github.com/controlplaneio/sandbox-probe)** 🟢 — Static Go probe that measures the effective filesystem, network, process, credential, and runtime capabilities exposed inside an AI-agent sandbox, then compares sandbox and host baselines. *(ControlPlane)* — **note:** boundary-measurement auditor, not an enforcement layer; some integration scripts can ask real agents to execute the probe, while deterministic model-free stubs are available for CI. *(★ 25 · updated 2026-08-25)*
   - **Related:** [Sandlock](https://github.com/multikernel/sandlock) · [AIO Sandbox](https://github.com/agent-infra/sandbox)
+- **[Ziran](https://github.com/taoq-ai/ziran)** 🟢 — Security testing framework for AI agents that models an agent's tools as a graph to find dangerous tool chain compositions, execution-level side effects, and multi-phase exploits, with adapters for LangChain, CrewAI, MCP, A2A, and remote HTTP agents. *(TaoQ AI)* — **note:** young project with limited independent adoption signal; the llm-adaptive campaign strategy, LLM judge, and autonomous pentest agent need an LLM provider key, while fixed and rule-based strategies and static analysis run without one. *(★ 10 · updated 2026-09-30)*
+  - **Related:** [agentic-radar](https://github.com/splx-ai/agentic-radar) · [promptfoo](https://github.com/promptfoo/promptfoo)
 
 ### Frameworks, Rule Standards & Benchmarks
 

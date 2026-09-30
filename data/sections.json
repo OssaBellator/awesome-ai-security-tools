@@ -777,6 +777,36 @@
                 "updated": "2026-08-25",
                 "snapshot": "2026-08-30"
               }
+            },
+            {
+              "name": "Ziran",
+              "repo": "taoq-ai/ziran",
+              "org": "TaoQ AI",
+              "desc": "Security testing framework for AI agents that models an agent's tools as a graph to find dangerous tool chain compositions, execution-level side effects, and multi-phase exploits, with adapters for LangChain, CrewAI, MCP, A2A, and remote HTTP agents.",
+              "license": "Apache-2.0",
+              "status": [
+                "open_source"
+              ],
+              "flags": [
+                "early_stage",
+                "model_dependent"
+              ],
+              "note": "— **note:** young project with limited independent adoption signal; the llm-adaptive campaign strategy, LLM judge, and autonomous pentest agent need an LLM provider key, while fixed and rule-based strategies and static analysis run without one.",
+              "related": [
+                {
+                  "label": "agentic-radar",
+                  "url": "https://github.com/splx-ai/agentic-radar"
+                },
+                {
+                  "label": "promptfoo",
+                  "url": "https://github.com/promptfoo/promptfoo"
+                }
+              ],
+              "metrics": {
+                "stars": 10,
+                "updated": "2026-09-30",
+                "snapshot": "2026-09-30"
+              }
             }
           ]
         },
