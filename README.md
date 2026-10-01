@@ -7,7 +7,7 @@
 
 **Type legend:** 🟢 public source / open-source · 🔬 research (paper / benchmark / dataset / framework) · 🟠 commercial with open components · ⚠️ restrictive, non-commercial, or unclear/no license — check before use.
 
-GitHub-hosted entries show static **★ stars** and **last-commit** snapshots; refresh them with `python3 scripts/update_github_metrics.py` before release. Most recently refreshed entry: 2026-09-27. Hugging Face model entries show license, access, and artifact metadata. Ordering within a section favors flagship and actively maintained projects.
+GitHub-hosted entries show static **★ stars** and **last-commit** snapshots; refresh them with `python3 scripts/update_github_metrics.py` before release. Most recently refreshed entry: 2026-10-01. Hugging Face model entries show license, access, and artifact metadata. Ordering within a section favors flagship and actively maintained projects.
 
 ---
 
@@ -84,6 +84,8 @@ Securing the AI agents themselves — auditing coding agents (Claude Code, Codex
   - **Related:** [Cisco AI Defense – skill-scanner](https://github.com/cisco-ai-defense/skill-scanner) · [skilltotal](https://github.com/pezhik/skilltotal) · [Snyk Agent Scan](https://github.com/snyk/agent-scan) · [Cisco AI Defense – mcp-scanner](https://github.com/cisco-ai-defense/mcp-scanner)
 - **[Ramparts](https://github.com/highflame-ai/ramparts)** 🟢 — Rust scanner for MCP servers and agent-skill bundles with YARA rules, optional LLM analysis, OSV/CVE lookups, OWASP MCP Top 10 mapping, and SARIF/JSON/Markdown reports. *(★ 96 · updated 2026-08-07)*
   - **Related:** [SkillSpector](https://github.com/NVIDIA/SkillSpector) · [Cisco AI Defense – skill-scanner](https://github.com/cisco-ai-defense/skill-scanner) · [Cisco AI Defense – mcp-scanner](https://github.com/cisco-ai-defense/mcp-scanner)
+- **[lintlang](https://github.com/hermes-labs-ai/lintlang)** 🟢 — Zero-LLM static linter for AI agent instructions, tool definitions, and system prompts; finds ambiguous tool descriptions, missing limits, conflicting directives, and schema gaps, with CLI and SARIF/CI output (H1.6-style local audit). — **note:** static instruction/config audit only; not runtime enforcement, prompt-injection detection, or a security guarantee. *(★ 129 · updated 2026-10-01)*
+  - **Related:** [little-canary](https://github.com/hermes-labs-ai/little-canary) · [rule-audit](https://github.com/hermes-labs-ai/rule-audit)
 - **[mcp-armor](https://github.com/aira-security/mcp-armor)** 🟢 — Local MCP security scanner with auto-discovery for agentic IDE configs, tool/resource/prompt inventory, prompt-injection checks, rug-pull and tool-poisoning detection, baseline drift monitoring, and JSON/Markdown reports. *(Aira Security)* *(★ 120 · updated 2026-03-27)*
   - **Related:** [SkillSpector](https://github.com/NVIDIA/SkillSpector) · [Ramparts](https://github.com/highflame-ai/ramparts) · [Cisco AI Defense – mcp-scanner](https://github.com/cisco-ai-defense/mcp-scanner)
 - **[aguara](https://github.com/garagon/aguara)** 🟢 — Single-binary static scanner (Go, no LLM) for AI-agent skills and MCP servers; multi-layer engine (pattern + NLP + taint tracking + rug-pull detection). Companion **[aguara-mcp](https://github.com/garagon/mcp-aguara)** exposes scanning as an MCP tool. *(★ 86 · updated 2026-08-12)*

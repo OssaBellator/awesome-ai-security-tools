@@ -278,6 +278,34 @@
               }
             },
             {
+              "name": "lintlang",
+              "repo": "hermes-labs-ai/lintlang",
+              "desc": "Zero-LLM static linter for AI agent instructions, tool definitions, and system prompts; finds ambiguous tool descriptions, missing limits, conflicting directives, and schema gaps, with CLI and SARIF/CI output (H1.6-style local audit).",
+              "license": "Apache-2.0",
+              "note": "— **note:** static instruction/config audit only; not runtime enforcement, prompt-injection detection, or a security guarantee.",
+              "status": [
+                "open_source"
+              ],
+              "flags": [
+                "early_stage"
+              ],
+              "related": [
+                {
+                  "label": "little-canary",
+                  "url": "https://github.com/hermes-labs-ai/little-canary"
+                },
+                {
+                  "label": "rule-audit",
+                  "url": "https://github.com/hermes-labs-ai/rule-audit"
+                }
+              ],
+              "metrics": {
+                "stars": 129,
+                "updated": "2026-10-01",
+                "snapshot": "2026-10-01"
+              }
+            },
+            {
               "name": "mcp-armor",
               "repo": "aira-security/mcp-armor",
               "org": "Aira Security",
