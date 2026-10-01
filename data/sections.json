@@ -3436,6 +3436,26 @@
             "updated": "2026-08-31",
             "snapshot": "2026-08-31"
           }
+        },
+        {
+          "name": "RedAmon",
+          "repo": "samugit83/redamon",
+          "desc": "Self-hosted AI pentest framework that maps recon into a Neo4j attack-surface graph, exploits from a Kali sandbox behind human approval gates, and opens pull requests that fix what it finds; works as both an MCP server and an MCP client (MIT).",
+          "license": "MIT",
+          "status": [
+            "open_source"
+          ],
+          "flags": [
+            "authorized_testing_only",
+            "heavy_runtime",
+            "model_dependent"
+          ],
+          "note": "— **note:** run it only against systems you are authorized to test. It deploys as a multi-container Docker Compose stack (Neo4j, Postgres, Kali sandbox, per-scan scanner containers). Agent decisions depend on the configured LLM: cloud providers need your API key and receive target data, while local models (Ollama, LM Studio, vLLM) keep that data on your machine; results vary by model.",
+          "metrics": {
+            "stars": 2880,
+            "updated": "2026-10-01",
+            "snapshot": "2026-10-01"
+          }
         }
       ]
     },

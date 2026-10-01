@@ -7,7 +7,7 @@
 
 **Type legend:** 🟢 public source / open-source · 🔬 research (paper / benchmark / dataset / framework) · 🟠 commercial with open components · ⚠️ restrictive, non-commercial, or unclear/no license — check before use.
 
-GitHub-hosted entries show static **★ stars** and **last-commit** snapshots; refresh them with `python3 scripts/update_github_metrics.py` before release. Most recently refreshed entry: 2026-09-27. Hugging Face model entries show license, access, and artifact metadata. Ordering within a section favors flagship and actively maintained projects.
+GitHub-hosted entries show static **★ stars** and **last-commit** snapshots; refresh them with `python3 scripts/update_github_metrics.py` before release. Most recently refreshed entry: 2026-10-01. Hugging Face model entries show license, access, and artifact metadata. Ordering within a section favors flagship and actively maintained projects.
 
 ---
 
@@ -332,6 +332,7 @@ Autonomous and semi-autonomous AI agents for penetration testing, exploitation, 
   - **Related:** [pentest-ai](https://github.com/0xSteph/pentest-ai) · [Burp Suite MCP Server](https://github.com/PortSwigger/mcp-server)
 - **[Forefy .context](https://github.com/forefy/.context)** 🟢 — MIT-licensed collection of AI-agent Skills, Goals, and Dynamic Workflows for security auditing, authorized penetration testing, and research across web, cloud, blockchain, and defensive workflows. *(Forefy)* — **note:** agent-interpreted skill and workflow bundle rather than a deterministic scanner; includes active offensive procedures, so review and pin content before use and run it only in isolated, authorized assessments. The hosted AI Security Registry is a separate SaaS-backed catalog that publishes commit provenance and project-generated scan/audit metadata. *(★ 133 · updated 2026-08-31)*
   - **Related:** [AI Security Registry](https://forefy.com/asr) · [Review methodology](https://forefy.com/asr/docs/supply-chain-defense) · [OpenAPI schema](https://forefy.com/docs/openapi.json)
+- **[RedAmon](https://github.com/samugit83/redamon)** 🟢 — Self-hosted AI pentest framework that maps recon into a Neo4j attack-surface graph, exploits from a Kali sandbox behind human approval gates, and opens pull requests that fix what it finds; works as both an MCP server and an MCP client (MIT). — **note:** run it only against systems you are authorized to test. It deploys as a multi-container Docker Compose stack (Neo4j, Postgres, Kali sandbox, per-scan scanner containers). Agent decisions depend on the configured LLM: cloud providers need your API key and receive target data, while local models (Ollama, LM Studio, vLLM) keep that data on your machine; results vary by model. *(★ 2,880 · updated 2026-10-01)*
 
 ---
 
