@@ -4952,6 +4952,25 @@
             "updated": "2026-08-03",
             "snapshot": "2026-08-17"
           }
+        },
+        {
+          "name": "JevSec",
+          "repo": "ccjmcc/jevsec",
+          "desc": "Self-hosted behavioral web-security triage that combines deterministic rules with a local Qwen3-4B decision model across short request sequences.",
+          "status": [
+            "open_source"
+          ],
+          "license": "MIT",
+          "flags": [
+            "early_stage",
+            "model_dependent"
+          ],
+          "note": "— **note:** Research Alpha; model-dependent behavior currently uses local Qwen3-4B-Instruct-2507, requires no external model API key by default, and keeps model inference local; benchmark results depend on the pinned model/runtime and evaluation configuration.",
+          "metrics": {
+            "stars": 1,
+            "updated": "2026-10-02",
+            "snapshot": "2026-10-02"
+          }
         }
       ]
     },
