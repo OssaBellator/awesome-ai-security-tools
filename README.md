@@ -7,7 +7,7 @@
 
 **Type legend:** 🟢 public source / open-source · 🔬 research (paper / benchmark / dataset / framework) · 🟠 commercial with open components · ⚠️ restrictive, non-commercial, or unclear/no license — check before use.
 
-GitHub-hosted entries show static **★ stars** and **last-commit** snapshots; refresh them with `python3 scripts/update_github_metrics.py` before release. Most recently refreshed entry: 2026-09-27. Hugging Face model entries show license, access, and artifact metadata. Ordering within a section favors flagship and actively maintained projects.
+GitHub-hosted entries show static **★ stars** and **last-commit** snapshots; refresh them with `python3 scripts/update_github_metrics.py` before release. Most recently refreshed entry: 2026-10-02. Hugging Face model entries show license, access, and artifact metadata. Ordering within a section favors flagship and actively maintained projects.
 
 ---
 
@@ -508,6 +508,7 @@ AI agents for SOC alert triage, investigation, and incident response.
   - **Related:** [MCP_Security](https://github.com/fr0gger/MCP_Security) · [Vigil SOC](https://github.com/Vigil-SOC/vigil)
 - **[ExCyTIn-Bench (SecRL)](https://github.com/microsoft/SecRL)** 🟢🔬 — ICML 2026 benchmark for evaluating LLM agents on cyber-threat investigation and threat hunting through security question-answering over eight anonymized incident databases. *(Microsoft)* — **note:** evaluation requires model-provider credentials, Dockerized MySQL incident databases, and roughly 10 GB for the standard eight-container setup (up to 33 GB for the combined database). *(★ 143 · updated 2026-08-03)*
   - **Related:** [CTIBench](https://github.com/maveryn/cti-bench) · [Google Security Operations MCP](https://github.com/google/mcp-security)
+- **[JevSec](https://github.com/ccjmcc/jevsec)** 🟢 — Self-hosted behavioral web-security triage that combines deterministic rules with a local Qwen3-4B decision model across short request sequences. — **note:** Research Alpha; model-dependent behavior currently uses local Qwen3-4B-Instruct-2507, requires no external model API key by default, and keeps model inference local; benchmark results depend on the pinned model/runtime and evaluation configuration. *(★ 1 · updated 2026-10-02)*
 
 ---
 
