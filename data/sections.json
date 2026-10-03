@@ -777,6 +777,26 @@
                 "updated": "2026-08-25",
                 "snapshot": "2026-08-30"
               }
+            },
+            {
+              "name": "plumb-line",
+              "repo": "slopstopper/plumb-line",
+              "org": "slopstopper",
+              "desc": "Claude Code skills that audit a repository for unverified claims and mock data, paired with a zero-dependency provenance primitive that propagates mock or low-confidence taint through derived values.",
+              "license": "Apache-2.0",
+              "status": [
+                "open_source"
+              ],
+              "flags": [
+                "early_stage",
+                "model_dependent"
+              ],
+              "note": "— **note:** the audit skills are Markdown workflows run by the host agent, so findings depend on the selected model; the JS/Python provenance primitive is deterministic and model-free, and its threat model targets honest mistakes rather than a determined adversary.",
+              "metrics": {
+                "stars": 4,
+                "updated": "2026-10-03",
+                "snapshot": "2026-10-03"
+              }
             }
           ]
         },

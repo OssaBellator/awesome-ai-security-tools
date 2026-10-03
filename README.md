@@ -7,7 +7,7 @@
 
 **Type legend:** 🟢 public source / open-source · 🔬 research (paper / benchmark / dataset / framework) · 🟠 commercial with open components · ⚠️ restrictive, non-commercial, or unclear/no license — check before use.
 
-GitHub-hosted entries show static **★ stars** and **last-commit** snapshots; refresh them with `python3 scripts/update_github_metrics.py` before release. Most recently refreshed entry: 2026-09-27. Hugging Face model entries show license, access, and artifact metadata. Ordering within a section favors flagship and actively maintained projects.
+GitHub-hosted entries show static **★ stars** and **last-commit** snapshots; refresh them with `python3 scripts/update_github_metrics.py` before release. Most recently refreshed entry: 2026-10-03. Hugging Face model entries show license, access, and artifact metadata. Ordering within a section favors flagship and actively maintained projects.
 
 ---
 
@@ -120,6 +120,7 @@ Securing the AI agents themselves — auditing coding agents (Claude Code, Codex
   - **Related:** [MCP-Security-Checklist](https://github.com/slowmist/MCP-Security-Checklist) · [sast-skills](https://github.com/utkusen/sast-skills)
 - **[Sandbox Probe](https://github.com/controlplaneio/sandbox-probe)** 🟢 — Static Go probe that measures the effective filesystem, network, process, credential, and runtime capabilities exposed inside an AI-agent sandbox, then compares sandbox and host baselines. *(ControlPlane)* — **note:** boundary-measurement auditor, not an enforcement layer; some integration scripts can ask real agents to execute the probe, while deterministic model-free stubs are available for CI. *(★ 25 · updated 2026-08-25)*
   - **Related:** [Sandlock](https://github.com/multikernel/sandlock) · [AIO Sandbox](https://github.com/agent-infra/sandbox)
+- **[plumb-line](https://github.com/slopstopper/plumb-line)** 🟢 — Claude Code skills that audit a repository for unverified claims and mock data, paired with a zero-dependency provenance primitive that propagates mock or low-confidence taint through derived values. *(slopstopper)* — **note:** the audit skills are Markdown workflows run by the host agent, so findings depend on the selected model; the JS/Python provenance primitive is deterministic and model-free, and its threat model targets honest mistakes rather than a determined adversary. *(★ 4 · updated 2026-10-03)*
 
 ### Frameworks, Rule Standards & Benchmarks
 
