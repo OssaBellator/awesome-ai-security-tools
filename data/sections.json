@@ -278,6 +278,34 @@
               }
             },
             {
+              "name": "lintlang",
+              "repo": "hermes-labs-ai/lintlang",
+              "desc": "Local deterministic linter for AI-agent instructions, tool definitions, and system prompts that flags ambiguous descriptions, missing limits, conflicting directives, and schema gaps, with CLI and SARIF output.",
+              "license": "Apache-2.0",
+              "note": "— **note:** heuristic static instruction/config review only; not runtime enforcement, prompt-injection detection, semantic-correctness proof, or a security guarantee.",
+              "status": [
+                "open_source"
+              ],
+              "flags": [
+                "early_stage"
+              ],
+              "related": [
+                {
+                  "label": "little-canary",
+                  "url": "https://github.com/hermes-labs-ai/little-canary"
+                },
+                {
+                  "label": "rule-audit",
+                  "url": "https://github.com/hermes-labs-ai/rule-audit"
+                }
+              ],
+              "metrics": {
+                "stars": 134,
+                "updated": "2026-10-02",
+                "snapshot": "2026-10-03"
+              }
+            },
+            {
               "name": "mcp-armor",
               "repo": "aira-security/mcp-armor",
               "org": "Aira Security",
