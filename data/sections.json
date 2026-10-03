@@ -3493,6 +3493,27 @@
             "updated": "2026-08-31",
             "snapshot": "2026-08-31"
           }
+        },
+        {
+          "name": "RedAmon",
+          "repo": "samugit83/redamon",
+          "desc": "Self-hosted AI pentest framework combining reconnaissance, a Neo4j attack-surface graph, Kali-based tooling, configurable human approvals, and agent-assisted remediation pull requests, with MCP client and server interfaces.",
+          "license": "MIT",
+          "status": [
+            "open_source"
+          ],
+          "flags": [
+            "authorized_testing_only",
+            "heavy_runtime",
+            "model_dependent",
+            "license_caveat"
+          ],
+          "note": "— **note:** authorized testing only, on a dedicated isolated host. The heavy Docker stack includes seccomp-unconfined components and services with Docker-socket access; approval gates are configurable, not an unavoidable boundary. Cloud LLMs receive target context; local inference avoids that provider transfer but does not disable external reconnaissance or other configured services. Bundled tools retain separate licenses, including copyleft and WPScan restrictions.",
+          "metrics": {
+            "stars": 2906,
+            "updated": "2026-10-02",
+            "snapshot": "2026-10-03"
+          }
         }
       ]
     },
