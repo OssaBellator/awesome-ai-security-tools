@@ -1303,6 +1303,34 @@
               }
             },
             {
+              "name": "Coi",
+              "repo": "coipond/coi",
+              "license": "MIT",
+              "desc": "Incus-based session manager for coding agents with protected workspace mounts, configurable network policy, optional host-side monitoring, and persistent or ephemeral Linux containers.",
+              "status": [
+                "open_source"
+              ],
+              "flags": [
+                "heavy_runtime"
+              ],
+              "note": "— **note:** shared-kernel containers are not a microVM boundary; workspace writes reach the host and configured credentials can be copied into the container. Default `restricted` networking allows public-internet egress and monitoring is off. The hardened profile enables monitoring and reduces kernel attack surface, but is not a general exfiltration or hostile-agent containment guarantee.",
+              "sources": [
+                {
+                  "label": "Containment threat model",
+                  "url": "https://github.com/coipond/coi/wiki/Threat-Model-Containment-Limits"
+                },
+                {
+                  "label": "Reviewed defaults",
+                  "url": "https://github.com/coipond/coi/blob/20ba7981e7a5b00728d671431a024a9666115b0e/internal/config/embedded/default_config.toml"
+                }
+              ],
+              "metrics": {
+                "stars": 733,
+                "updated": "2026-10-02",
+                "snapshot": "2026-10-03"
+              }
+            },
+            {
               "name": "cplt",
               "repo": "navikt/cplt",
               "org": "NAV (Norwegian Labour and Welfare Administration)",
@@ -1685,6 +1713,28 @@
                 "stars": 456,
                 "updated": "2026-06-25",
                 "snapshot": "2026-08-17"
+              }
+            },
+            {
+              "name": "AgentAegis",
+              "repo": "antgroup/agent-aegis",
+              "org": "Ant Group",
+              "license": "Apache-2.0",
+              "desc": "OpenClaw security plugin that observes or blocks selected prompt, tool-call, memory, exfiltration, and protected-path risks through configurable agent lifecycle hooks.",
+              "status": [
+                "open_source"
+              ],
+              "note": "— **note:** the code defaults blocking defenses to `enforce`; the README's `observe` configuration is an optional staged-rollout example. Coverage depends on enabled hooks, modes, and protected assets; this is OpenClaw-specific defense in depth, not a general sandbox or injection-proof boundary, and published effectiveness demonstrations are project-operated.",
+              "sources": [
+                {
+                  "label": "Configuration defaults",
+                  "url": "https://github.com/antgroup/agent-aegis/blob/23d59b8986b86de448d24ff973e662295768d533/src/config.ts#L394"
+                }
+              ],
+              "metrics": {
+                "stars": 199,
+                "updated": "2026-06-26",
+                "snapshot": "2026-10-03"
               }
             },
             {
@@ -3146,6 +3196,36 @@
             "stars": 1598,
             "updated": "2026-08-17",
             "snapshot": "2026-08-17"
+          }
+        },
+        {
+          "name": "Transilience Community Tools",
+          "repo": "transilienceai/communitytools",
+          "org": "Transilience AI",
+          "license": "MIT",
+          "desc": "Claude Code skill and coordination-role bundle with supporting tools for authorized penetration testing, reconnaissance, source review, and AI threat testing.",
+          "status": [
+            "open_source"
+          ],
+          "flags": [
+            "model_dependent",
+            "authorized_testing_only"
+          ],
+          "note": "— **note:** agent-interpreted workflows, not a deterministic scanner or enforcement boundary; results depend on the configured coding agent/model, and published CTF results are maintainer-run after iterative benchmark tuning. The Docker helper uses host networking and `--dangerously-skip-permissions`, while `env-reader.py` prints requested secrets. Review and pin content, use disposable environments and scoped test credentials, and treat transcripts and context sent to model providers as sensitive.",
+          "sources": [
+            {
+              "label": "Container helper",
+              "url": "https://github.com/transilienceai/communitytools/blob/95fdc128af4ca1ae16b3226f9430f1bad97b0656/scripts/kali-claude-setup.sh"
+            },
+            {
+              "label": "Credential helper",
+              "url": "https://github.com/transilienceai/communitytools/blob/95fdc128af4ca1ae16b3226f9430f1bad97b0656/tools/env-reader.py"
+            }
+          ],
+          "metrics": {
+            "stars": 555,
+            "updated": "2026-07-29",
+            "snapshot": "2026-10-03"
           }
         },
         {
