@@ -2402,6 +2402,35 @@
                 "updated": "2026-09-03",
                 "snapshot": "2026-09-04"
               }
+            },
+            {
+              "name": "Tenuo",
+              "repo": "tenuo-ai/tenuo",
+              "desc": "Capability-based authorization for agent tool calls using signed, holder-bound warrants that constrain tools and arguments, verify locally, and narrow authority across delegation.",
+              "license": "Apache-2.0",
+              "status": [
+                "open_source",
+                "commercial_open"
+              ],
+              "flags": [
+                "commercial_features"
+              ],
+              "note": "— **note:** the Rust core, SDKs, and authorizer sidecar are Apache-2.0; the managed control plane is commercial. Enforcement requires trusted verification on every effecting tool path, outside agent control when bypass is possible; this is not a sandbox. The stateless core permits identical-call replay within its proof-of-possession window, so state-changing operations need application-level nonce or idempotency controls.",
+              "related": [
+                {
+                  "label": "Agentgateway",
+                  "url": "https://github.com/agentgateway/agentgateway"
+                },
+                {
+                  "label": "AgentLock",
+                  "url": "https://github.com/webpro255/agentlock"
+                }
+              ],
+              "metrics": {
+                "stars": 100,
+                "updated": "2026-10-03",
+                "snapshot": "2026-10-03"
+              }
             }
           ]
         }
