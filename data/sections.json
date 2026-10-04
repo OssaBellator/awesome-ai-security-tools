@@ -7,6 +7,17 @@
       "intro": "AI/LLM tools that triage, deduplicate, prioritize, or validate the output of scanners and finding sources.",
       "entries": [
         {
+          "name": "Metis",
+          "repo": "arm/metis",
+          "org": "Arm",
+          "status": ["open_source"],
+          "license": "Apache-2.0",
+          "flags": ["model_dependent"],
+          "desc": "Security-review framework that triages external SARIF findings using source-navigation evidence, optional C/C++ code graphs, and structured LLM decisions.",
+          "note": "**Caveat:** hosted providers receive selected source and evidence and require credentials; local providers need separately provisioned weights, and indexing may use a separate embedding provider. Debug traces can contain sensitive content. Model verdicts are not proof of exploitability or grounds for automatic suppression.",
+          "metrics": {"stars": 872, "updated": "2026-09-30", "snapshot": "2026-10-05"}
+        },
+        {
           "name": "nuclei-autotriage",
           "repo": "cyberok-org/nuclei-autotriage",
           "org": "CyberOK",
@@ -1175,6 +1186,15 @@
         {
           "title": "Runtime Protection & Enforcement",
           "entries": [
+            {
+              "name": "Agent Safehouse",
+              "repo": "eugene1g/agent-safehouse",
+              "status": ["open_source"],
+              "license": "Apache-2.0",
+              "desc": "macOS launcher that assembles Seatbelt sandbox-exec profiles to scope coding agents' filesystem and integration access.",
+              "note": "**Caveat:** macOS-only hardening, not a VM or prompt-injection detector. The default profile permits inbound and outbound networking; exfiltration prevention is explicitly out of scope. Granted workspaces and integrations remain accessible, and launched agents retain their own credential, billing, and network behavior.",
+              "metrics": {"stars": 2092, "updated": "2026-09-30", "snapshot": "2026-10-05"}
+            },
             {
               "name": "OpenShell",
               "repo": "NVIDIA/OpenShell",
@@ -2520,6 +2540,17 @@
       "intro": "Tools for securing model artifacts, serialized ML files, AI/ML supply-chain surfaces, and malicious-package detection datasets/benchmarks.",
       "entries": [
         {
+          "name": "ModelAudit",
+          "repo": "promptfoo/modelaudit",
+          "org": "Promptfoo",
+          "status": ["open_source"],
+          "license": "MIT",
+          "flags": ["telemetry"],
+          "desc": "Model-artifact scanner with format-specific static parsers, a Rust-backed pickle-analysis companion, metadata checks, and JSON/SARIF reporting.",
+          "note": "**Caveat:** installed usage enables telemetry by default; disable with `PROMPTFOO_DISABLE_TELEMETRY=1` or `NO_ANALYTICS=1`. Local scans need no hosted LLM, while remote sources need network access and sometimes credentials. Reports can retain raw secrets; optional `metadata --trust-loaders` can deserialize artifacts. A clean static scan does not establish model safety.",
+          "metrics": {"stars": 76, "updated": "2026-10-04", "snapshot": "2026-10-05"}
+        },
+        {
           "name": "AI BOM",
           "repo": "cisco-ai-defense/aibom",
           "org": "Cisco AI Defense",
@@ -3029,6 +3060,29 @@
       "anchor": "pentest--red-team-agents",
       "intro": "Autonomous and semi-autonomous AI agents for penetration testing, exploitation, and attack simulation.",
       "entries": [
+        {
+          "name": "Cairn",
+          "repo": "oritera/Cairn",
+          "status": [
+            "open_source",
+            "research"
+          ],
+          "license": "AGPL-3.0",
+          "flags": [
+            "copyleft",
+            "license_caveat",
+            "model_dependent",
+            "heavy_runtime",
+            "authorized_testing_only"
+          ],
+          "desc": "Fact-intent graph coordinator that schedules Claude Code, Codex, or Pi workers for penetration-testing and CTF exploration through a shared persistent blackboard.",
+          "note": "**Caveat:** workers can execute arbitrary tools; Docker mode exposes the host Docker socket and local mode has no OS sandbox. Configured providers receive target context; use a dedicated isolated host. Root license is AGPL-3.0; README describes personal/educational use and offers a separate commercial license for use without AGPL obligations.",
+          "metrics": {
+            "stars": 3198,
+            "updated": "2026-09-07",
+            "snapshot": "2026-10-05"
+          }
+        },
         {
           "name": "PentestGPT",
           "repo": "GreyDGL/PentestGPT",
@@ -3982,6 +4036,27 @@
       "intro": "Static analysis and secure code review enhanced with LLMs.",
       "entries": [
         {
+          "name": "Clearwing",
+          "repo": "Lazarus-AI/clearwing",
+          "status": [
+            "open_source"
+          ],
+          "license": "MIT",
+          "flags": [
+            "model_dependent",
+            "telemetry",
+            "heavy_runtime",
+            "authorized_testing_only"
+          ],
+          "desc": "Agent-driven source-security research pipeline that ranks files, coordinates vulnerability hunting and validation, optionally generates patches, and exports SARIF, JSON, and Markdown findings.",
+          "note": "**Caveat:** can compile untrusted targets and execute generated proofs or exploits; use isolated authorized environments and explicit spending limits. Hosted models receive source context; local providers are supported. Optional OTLP/Phoenix tracing can export run metadata. Findings need independent verification, and released packages can lag main.",
+          "metrics": {
+            "stars": 1072,
+            "updated": "2026-10-02",
+            "snapshot": "2026-10-05"
+          }
+        },
+        {
           "name": "Cloudflare Security Audit Skill",
           "repo": "cloudflare/security-audit-skill",
           "org": "Cloudflare",
@@ -4468,6 +4543,27 @@
       "intro": "Architecture-level threat model generation and design-phase risk analysis driven by LLM reasoning.",
       "entries": [
         {
+          "name": "ThreatForest",
+          "repo": "aws-samples/sample-agentic-attack-tree-generator",
+          "org": "AWS Samples",
+          "status": [
+            "open_source",
+            "research"
+          ],
+          "license": "MIT-0",
+          "flags": [
+            "model_dependent",
+            "telemetry"
+          ],
+          "desc": "Strands-based threat-modeling pipeline that analyzes repositories, generates attack trees and mitigations, and maps attack steps to ATT&CK and other TTP frameworks through an embedding service.",
+          "note": "**Caveat:** sends project context to configured model providers and requires separately licensed embedding weights; optional Langfuse export defaults off. Keep its unauthenticated API on loopback. Generated paths and embedding-based TTP mappings require expert review, not automatic acceptance as demonstrated attack paths.",
+          "metrics": {
+            "stars": 80,
+            "updated": "2026-08-01",
+            "snapshot": "2026-10-05"
+          }
+        },
+        {
           "name": "tachi",
           "repo": "davidmatousek/tachi",
           "org": "David Matousek",
@@ -4527,6 +4623,77 @@
         {
           "title": "Harness / target generation",
           "entries": [
+            {
+              "name": "seclab-taskflows-fuzzing",
+              "repo": "GitHubSecurityLab/seclab-taskflows-fuzzing",
+              "org": "GitHub Security Lab",
+              "desc": "Taskflow package for LLM-assisted C/C++ fuzz-harness generation and repair, AFL++ campaigns, coverage feedback, and crash triage.",
+              "status": [
+                "open_source"
+              ],
+              "license": "MIT",
+              "flags": [
+                "early_stage",
+                "heavy_runtime",
+                "model_dependent",
+                "authorized_testing_only"
+              ],
+              "note": "**Caveat:** requires a configured model provider and a Linux build/fuzzing toolchain; provider-backed analysis can disclose source code. Host-shell and file-write tools are not a sandbox, and setup can install system tools. Use a disposable isolated environment for authorized targets.",
+              "related": [
+                {
+                  "label": "seclab-taskflow-agent",
+                  "url": "https://github.com/GitHubSecurityLab/seclab-taskflow-agent"
+                }
+              ],
+              "metrics": {
+                "stars": 20,
+                "updated": "2026-09-21",
+                "snapshot": "2026-10-04"
+              }
+            },
+            {
+              "name": "Ultrafuzz",
+              "repo": "monad-developers/ultrafuzz",
+              "org": "Monad Foundation",
+              "desc": "Agentic smart-contract fuzzing orchestrator that generates tests, coordinates analysis campaigns, and collects findings and reports.",
+              "status": [
+                "open_source"
+              ],
+              "license": "MIT",
+              "flags": [
+                "early_stage",
+                "heavy_runtime",
+                "model_dependent",
+                "authorized_testing_only"
+              ],
+              "note": "**Caveat:** agents deliberately bypass permission and sandbox approvals and can access host files and the network. Run only on an ephemeral isolated VM without unrelated credentials; review a published release rather than the default unstable branch. Model/provider configuration determines cost and data disclosure; the harness is not an isolation boundary.",
+              "metrics": {
+                "stars": 98,
+                "updated": "2026-10-02",
+                "snapshot": "2026-10-04"
+              }
+            },
+            {
+              "name": "PromeFuzz",
+              "repo": "pvz122/PromeFuzz",
+              "desc": "Research framework for C/C++ fuzz-harness generation using code metadata, documentation, API relationships, iterative compilation repair, and crash analysis (CCS 2025).",
+              "status": [
+                "open_source",
+                "research"
+              ],
+              "license": "MIT",
+              "flags": [
+                "heavy_runtime",
+                "model_dependent",
+                "authorized_testing_only"
+              ],
+              "note": "**Caveat:** requires target build metadata, a native LLVM/Clang toolchain, and configured generation/embedding models. Hosted providers receive source and documentation context; generated harnesses and target code execute during campaigns. Use isolated authorized environments and do not generalize the paper's coverage or bug-finding results to arbitrary targets.",
+              "metrics": {
+                "stars": 61,
+                "updated": "2026-07-30",
+                "snapshot": "2026-10-05"
+              }
+            },
             {
               "name": "oss-fuzz-gen",
               "repo": "google/oss-fuzz-gen",
@@ -4716,6 +4883,64 @@
       "anchor": "threat-intelligence",
       "intro": "AI/LLM tooling for CTI gathering, IOC/TTP extraction, and analysis.",
       "entries": [
+        {
+          "name": "ZettelForge",
+          "repo": "ThreatRecall/zettelforge",
+          "desc": "CTI investigation memory with entity and IOC extraction, graph and vector retrieval, local storage, and an MCP interface.",
+          "status": [
+            "open_source"
+          ],
+          "license": "MIT",
+          "flags": [
+            "early_stage",
+            "model_dependent"
+          ],
+          "note": "**Caveat:** core storage and retrieval are local, but embedding models require an initial download and optional remote LLM providers receive analysis content. Rich extraction and synthesis depend on the configured model; synthesis without an LLM is a placeholder, not a completed analysis. Generated links and attribution need analyst validation.",
+          "metrics": {
+            "stars": 64,
+            "updated": "2026-07-10",
+            "snapshot": "2026-10-04"
+          }
+        },
+        {
+          "name": "VoidAccess",
+          "repo": "KatrielMoses/voidaccess",
+          "desc": "OSINT and CTI pipeline combining source collection, IOC/entity extraction, enrichment, relationship analysis, and intelligence exports.",
+          "status": [
+            "open_source"
+          ],
+          "license": "MIT",
+          "flags": [
+            "model_dependent",
+            "authorized_testing_only"
+          ],
+          "note": "**Caveat:** collection contacts external and potentially hostile sources; Tor is not an anonymity guarantee. Cloud model adapters disclose submitted content, while local models are configurable. Neural embeddings are optional and the SHA-256 fallback is not semantic ML; generated attribution and detection rules require analyst review.",
+          "metrics": {
+            "stars": 770,
+            "updated": "2026-08-04",
+            "snapshot": "2026-10-04"
+          }
+        },
+        {
+          "name": "cti-skills",
+          "repo": "Liberty91LTD/cti-skills",
+          "org": "Liberty91",
+          "desc": "CTI workflow skills and integration clients for source assessment, IOC investigation, ATT&CK mapping, detection-rule drafting, and MISP/OpenCTI workflows.",
+          "status": [
+            "open_source"
+          ],
+          "license": "MIT",
+          "flags": [
+            "early_stage",
+            "model_dependent"
+          ],
+          "note": "**Caveat:** skills guide a host agent rather than provide an independent detection engine. Live integrations need provider credentials and can disclose intelligence; some clients can create, modify, or delete records. Confirmation instructions are not enforced authorization, so scope credentials and review writes separately.",
+          "metrics": {
+            "stars": 25,
+            "updated": "2026-09-30",
+            "snapshot": "2026-10-04"
+          }
+        },
         {
           "name": "trs",
           "repo": "deadbits/trs",
@@ -5119,6 +5344,26 @@
       "intro": "LLM-assisted binary analysis and traffic inspection.",
       "entries": [
         {
+          "name": "IDAssist",
+          "repo": "symgraph/IDAssist",
+          "status": [
+            "open_source"
+          ],
+          "license": "MIT",
+          "flags": [
+            "model_dependent",
+            "commercial_features",
+            "authorized_testing_only"
+          ],
+          "desc": "Native IDA Pro plugin for LLM-assisted function explanation, symbol renaming, binary knowledge graphs, document retrieval, and tool-driven analysis through local or hosted model providers.",
+          "note": "**Caveat:** requires separately licensed IDA Pro; hosted models receive analysis context, optional SymGraph sharing exports symbols and graph data, and MCP tools can modify the IDB or start local processes. Findings require analyst verification.",
+          "metrics": {
+            "stars": 729,
+            "updated": "2026-09-20",
+            "snapshot": "2026-10-05"
+          }
+        },
+        {
           "name": "DeepZero",
           "repo": "416rehman/DeepZero",
           "desc": "Resumable Windows driver research framework combining Ghidra decompilation, static analysis, and optional LLM assessment through YAML pipelines.",
@@ -5505,6 +5750,26 @@
         {
           "title": "Scanners, Evals & Guardrails",
           "entries": [
+            {
+              "name": "OpenART",
+              "repo": "AI45Lab/OpenART",
+              "status": ["open_source", "research"],
+              "license": "AGPL-3.0",
+              "flags": ["copyleft", "model_dependent", "heavy_runtime", "authorized_testing_only"],
+              "desc": "Research benchmark and Docker-based runtime for red-teaming tool-using agents through adversarial changes to stateful, long-running task environments.",
+              "note": "**Caveat:** bundled runnable tasks are a subset of the paper's broader evaluation, not the entire headline corpus. Model-backed attackers, targets, and judges require configured providers and can disclose evaluation content. Executable evaluators, container mounts, and network access require disposable authorized environments; this is not a production guardrail or independently verified containment layer.",
+              "metrics": {"stars": 229, "updated": "2026-10-03", "snapshot": "2026-10-05"}
+            },
+            {
+              "name": "ZeroLeaks",
+              "repo": "ZeroLeaks/zeroleaks",
+              "status": ["commercial_open"],
+              "license": "FSL-1.1-Apache-2.0",
+              "flags": ["license_caveat", "model_dependent", "commercial_features", "authorized_testing_only"],
+              "desc": "Source-available TypeScript library and CLI for model-based system-prompt extraction and injection testing with adaptive attacks and configurable providers.",
+              "note": "**Caveat:** FSL restricts competing commercial use before the future Apache conversion. The public package tests a model plus system prompt, not a deployed application's actual tools, memory, or side effects; hosted deployed-agent testing is separate and paid. Hosted providers receive prompt material and require credentials, while local compatible endpoints are supported. Model-graded results are not proof of exploitation.",
+              "metrics": {"stars": 733, "updated": "2026-09-26", "snapshot": "2026-10-05"}
+            },
             {
               "name": "RAMPART",
               "repo": "microsoft/RAMPART",
@@ -6670,6 +6935,19 @@
           "title": "Specialty Security LLMs",
           "entries": [
             {
+              "kind": "hf_model",
+              "name": "Foundation-Sec-8B-Reasoning",
+              "model": "fdtn-ai/Foundation-Sec-8B-Reasoning",
+              "org": "Cisco Foundation AI",
+              "status": ["commercial_open"],
+              "license": "Llama 3.1 Community License (base materials); Apache-2.0 (Cisco changes)",
+              "access": "open",
+              "artifacts": "Safetensors",
+              "flags": ["license_caveat", "model_dependent", "heavy_runtime"],
+              "desc": "Downloadable Llama-3.1-derived 8B reasoning model for cybersecurity analysis, threat intelligence, and multi-step security workflows.",
+              "note": "**Caveat:** not an Apache-only model; retain the base-model license and NOTICE obligations. Local inference needs a separate runtime and substantial memory, but no mandatory Cisco service. Security analysis can hallucinate; this is not a verified scanner or guardrail, and any tool-executing wrapper needs independent authorization and isolation."
+            },
+            {
               "name": "SecGPT",
               "repo": "Clouditera/SecGPT",
               "org": "Clouditera",
@@ -6891,6 +7169,28 @@
       "anchor": "ctf--exploit--bug-bounty-agents--benchmarks",
       "intro": "Offensive agents and the benchmarks used to evaluate them.",
       "entries": [
+        {
+          "name": "ExploitGym",
+          "repo": "sunblaze-ucb/exploitgym",
+          "status": [
+            "open_source",
+            "research"
+          ],
+          "license": "Apache-2.0 (harness); task artifacts retain upstream licenses",
+          "flags": [
+            "license_caveat",
+            "model_dependent",
+            "heavy_runtime",
+            "authorized_testing_only"
+          ],
+          "desc": "Research benchmark and evaluation harness for developing exploits for known vulnerabilities across userspace programs, V8, and Linux-kernel tasks, combining flag checks with model-based trajectory assessment.",
+          "note": "**Caveat:** executes real exploits against vulnerable containers or VMs and can require host mitigation changes; use dedicated isolated infrastructure. Providers and model judges receive task context, task artifacts retain separate upstream licenses, and judge verdicts need review.",
+          "metrics": {
+            "stars": 1135,
+            "updated": "2026-09-29",
+            "snapshot": "2026-10-05"
+          }
+        },
         {
           "name": "Inspect Cyber",
           "repo": "UKGovernmentBEIS/inspect_cyber",
@@ -7412,6 +7712,51 @@
       "intro": "AI tooling for cloud/IaC security, digital forensics, OSINT, and phishing detection.",
       "entries": [
         {
+          "name": "AIFT",
+          "repo": "FlipForensics/AIFT",
+          "status": [
+            "open_source"
+          ],
+          "license": "AGPL-3.0",
+          "flags": [
+            "copyleft",
+            "model_dependent"
+          ],
+          "desc": "Python forensic-triage application that parses disk images and collected Windows/Linux artifacts with Dissect, then produces model-assisted reports through GUI, CLI, REST, or MCP interfaces.",
+          "note": "**Caveat:** AGPL-3.0 licensed. Hosted providers receive parsed evidence; local models require separately supplied runtimes and weights. Use evidence copies and independent integrity controls, and keep API access trusted. Outputs are investigation leads requiring examiner verification, not final forensic conclusions.",
+          "metrics": {
+            "stars": 48,
+            "updated": "2026-06-13",
+            "snapshot": "2026-10-05"
+          }
+        },
+        {
+          "name": "Valhuntir",
+          "repo": "AppliedIR/Valhuntir",
+          "status": [
+            "open_source"
+          ],
+          "license": "MIT",
+          "flags": [
+            "early_stage",
+            "model_dependent",
+            "heavy_runtime"
+          ],
+          "desc": "Analyst-directed incident-response platform combining a Python case-management CLI with SIFT MCP services for evidence processing, draft findings, human review, and report generation.",
+          "note": "**Caveat:** alpha; full deployment needs companion SIFT MCP packages and optional forensic VMs or OpenSearch. Loaded evidence may reach configured model providers. Lite has no sandbox or deny rules, tools can execute on the host, and evidence integrity and findings require independent examiner controls.",
+          "metrics": {
+            "stars": 106,
+            "updated": "2026-10-04",
+            "snapshot": "2026-10-05"
+          },
+          "related": [
+            {
+              "label": "SIFT MCP backend",
+              "url": "https://github.com/AppliedIR/sift-mcp"
+            }
+          ]
+        },
+        {
           "name": "EscalateGPT",
           "repo": "tenable/EscalateGPT",
           "org": "Tenable",
@@ -7603,6 +7948,18 @@
       "title": "Related Awesome Lists",
       "anchor": "related-awesome-lists",
       "entries": [
+        {
+          "kind": "awesome_list",
+          "name": "Awesome MLLM/LLM Guardrails",
+          "repo": "ant-research/awesome-mllm-guardrails",
+          "license": "Apache-2.0",
+          "desc": "Focused research index of text and multimodal guardrail models, moderation datasets, jailbreak studies, evaluation resources, and runtime frameworks; linked artifacts retain their own terms.",
+          "metrics": {
+            "stars": 31,
+            "updated": "2026-09-03",
+            "snapshot": "2026-10-05"
+          }
+        },
         {
           "kind": "awesome_list",
           "name": "awesome-security-agent-harnesses",
