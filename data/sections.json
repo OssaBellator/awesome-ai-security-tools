@@ -144,6 +144,24 @@
           "title": "Scanners & Auditors",
           "entries": [
             {
+              "name": "Guardana",
+              "repo": "guardana/guardana",
+              "status": [
+                "open_source"
+              ],
+              "license": "Apache-2.0",
+              "flags": [
+                "early_stage"
+              ],
+              "desc": "Verifies AI artifacts, live-system checks, and recorded agent traces, including evidence of unapproved side effects, outside the request path.",
+              "note": "**Caveat:** beta; trace checks depend on complete, trustworthy evidence and do not enforce tool calls. Built-in artifact checks are local, while active probes contact configured targets and optional collectors receive reports. Not a general SAST scanner or compliance certification.",
+              "metrics": {
+                "stars": 145,
+                "updated": "2026-10-05",
+                "snapshot": "2026-10-05"
+              }
+            },
+            {
               "name": "agent-audit",
               "repo": "scadastrangelove/agent-audit",
               "org": "CyberOK / S. Gordeychik",
@@ -823,6 +841,26 @@
           "title": "Frameworks, Rule Standards & Benchmarks",
           "entries": [
             {
+              "name": "RepoGuardBench",
+              "repo": "DaoyuanLi2816/RepoGuardBench",
+              "status": [
+                "open_source"
+              ],
+              "license": "MIT (code); CC-BY-4.0 (original data/results)",
+              "flags": [
+                "research",
+                "model_dependent",
+                "authorized_testing_only"
+              ],
+              "desc": "Repository prompt-injection benchmark with coding tasks, attack carriers, defenses, and separate scoring of attack attempts, observed outcomes, and task utility.",
+              "note": "**Caveat:** its subprocess workspace is not an OS sandbox: allowing Python or pytest does not prevent host-file access or networking. Use a separate disposable environment without secrets; marker-based outcomes and model behavior are not proof of production isolation.",
+              "metrics": {
+                "stars": 70,
+                "updated": "2026-10-03",
+                "snapshot": "2026-10-05"
+              }
+            },
+            {
               "name": "Project CodeGuard",
               "repo": "cosai-oasis/project-codeguard",
               "org": "CoSAI / OASIS",
@@ -839,7 +877,17 @@
                 "stars": 338,
                 "updated": "2026-09-18",
                 "snapshot": "2026-09-21"
-              }
+              },
+              "related": [
+                {
+                  "label": "OWASP review skill for Claude Code (model-dependent; evaluations may require paid API)",
+                  "url": "https://github.com/agamm/claude-code-owasp"
+                },
+                {
+                  "label": "Cisco Foundry evaluation specification (CC BY 4.0; no implementation code)",
+                  "url": "https://github.com/CiscoDevNet/foundry-security-spec"
+                }
+              ]
             },
             {
               "name": "asamm",
@@ -871,6 +919,14 @@
                 {
                   "label": "agent-audit",
                   "url": "https://github.com/scadastrangelove/agent-audit"
+                },
+                {
+                  "label": "AI governance crosswalk (expert review required; not certification)",
+                  "url": "https://github.com/jeanmalaquias/ai-governance-mapping"
+                },
+                {
+                  "label": "AATMF threat-modeling reference (CC BY-SA 4.0; not an automated verifier)",
+                  "url": "https://github.com/SnailSploit/AATMF-Adversarial-AI-Threat-Modeling-Framework"
                 }
               ],
               "metrics": {
@@ -895,6 +951,10 @@
                 {
                   "label": "aguara",
                   "url": "https://github.com/garagon/aguara"
+                },
+                {
+                  "label": "Sigma-AI detection content (temporal/similarity extensions require a compatible engine)",
+                  "url": "https://github.com/agentshield-ai/sigma-ai"
                 }
               ],
               "metrics": {
@@ -948,6 +1008,10 @@
                 {
                   "label": "ATR – Agent Threat Rules",
                   "url": "https://github.com/Agent-Threat-Rule/agent-threat-rules"
+                },
+                {
+                  "label": "MCP security hardening and operations guidance (CC0; not deployment certification)",
+                  "url": "https://github.com/ModelContextProtocol-Security/modelcontextprotocol-security.io"
                 }
               ],
               "metrics": {
@@ -1144,6 +1208,14 @@
                 {
                   "label": "Agent Threat Rules",
                   "url": "https://github.com/Agent-Threat-Rule/agent-threat-rules"
+                },
+                {
+                  "label": "GenAI data-security guidance (CC BY-SA 4.0; separate scanner not included)",
+                  "url": "https://github.com/GenAI-Security-Project/GenAI-Data-Security-Initiative"
+                },
+                {
+                  "label": "OWASP LLMSVS (distinct documentation project; CC BY-SA 4.0)",
+                  "url": "https://github.com/OWASP/www-project-llm-verification-standard"
                 }
               ],
               "metrics": {
@@ -1186,6 +1258,103 @@
         {
           "title": "Runtime Protection & Enforcement",
           "entries": [
+            {
+              "name": "Spring MCP Security",
+              "repo": "spring-ai-community/mcp-security",
+              "org": "Spring AI Community",
+              "status": [
+                "open_source"
+              ],
+              "license": "Apache-2.0",
+              "desc": "Spring security components for MCP authentication, JWT audience validation, principal-bound sessions, and transport Origin/Host checks.",
+              "note": "**Caveat:** match library and Spring AI versions and the supported transport/stack combination. Operators must configure issuers, scopes, and application authorization; these controls do not detect prompt injection.",
+              "metrics": {
+                "stars": 117,
+                "updated": "2026-09-20",
+                "snapshot": "2026-10-05"
+              },
+              "related": [
+                {
+                  "label": ".NET MCP OAuth/Entra/DPoP samples (configured identity provider and compatible clients required)",
+                  "url": "https://github.com/damienbod/McpSecurity"
+                }
+              ]
+            },
+            {
+              "name": "yoloAI",
+              "repo": "kstenerud/yoloai",
+              "status": [
+                "open_source"
+              ],
+              "license": "MIT",
+              "flags": [
+                "early_stage",
+                "heavy_runtime"
+              ],
+              "desc": "Coding-agent sandbox runner with multiple backends, credential-brokering integrations, and a copy/diff/apply workflow for reviewing workspace changes.",
+              "note": "**Caveat:** public beta; isolation depends on the backend and configuration. Select network isolation explicitly, avoid privileged modes, and review mounts; agents without broker support receive mounted credentials, and hosted agents still send context to their providers.",
+              "metrics": {
+                "stars": 216,
+                "updated": "2026-08-21",
+                "snapshot": "2026-10-05"
+              }
+            },
+            {
+              "name": "Jailoc",
+              "repo": "seznam/jailoc",
+              "org": "Seznam",
+              "status": [
+                "open_source"
+              ],
+              "license": "MIT",
+              "flags": [
+                "heavy_runtime"
+              ],
+              "desc": "Container launcher for OpenCode with configurable workspace mounts, network/DNS policy, resource limits, and secret references.",
+              "note": "**Caveat:** Docker and the agent image remain trusted dependencies; extra mounts, SSH-agent forwarding, optional Docker access, and supplied credentials expand the boundary. Container configuration is not a guarantee against escape or data disclosure to model providers.",
+              "metrics": {
+                "stars": 32,
+                "updated": "2026-09-24",
+                "snapshot": "2026-10-05"
+              }
+            },
+            {
+              "name": "Agent Sandbox (agentbox)",
+              "repo": "mattolson/agent-sandbox",
+              "status": [
+                "open_source"
+              ],
+              "license": "MIT",
+              "flags": [
+                "heavy_runtime"
+              ],
+              "desc": "Container-based coding-agent environment with proxy-mediated egress policies and server-side credential injection.",
+              "note": "**Caveat:** the reviewed firewall permits the detected Docker host subnet, not only the proxy, and has no IPv6 rules; proxy enforcement is inactive outside enforce mode. Review IPv6, neighboring services, writable mounts, and the IDE/control plane rather than assuming complete network or host isolation.",
+              "metrics": {
+                "stars": 208,
+                "updated": "2026-09-26",
+                "snapshot": "2026-10-05"
+              }
+            },
+            {
+              "name": "Crust",
+              "repo": "BakeLens/crust",
+              "status": [
+                "open_source"
+              ],
+              "license": "Elastic-2.0",
+              "flags": [
+                "license_caveat",
+                "telemetry"
+              ],
+              "desc": "Local Go gateway that extracts tool calls from supported model API responses and applies rules before forwarding them to an agent.",
+              "note": "**Caveat:** source-available under Elastic License 2.0, including managed-service restrictions, not a permissive OSS license. Only intercepted supported paths are covered; parse failures can pass the original body through. The sample forwards to OpenRouter, disables local telemetry, and leaves the storage encryption key empty; review provider disclosure and any enabled local records.",
+              "metrics": {
+                "stars": 440,
+                "updated": "2026-03-30",
+                "snapshot": "2026-10-05"
+              }
+            },
             {
               "name": "Agent Safehouse",
               "repo": "eugene1g/agent-safehouse",
@@ -1399,6 +1568,10 @@
                 {
                   "label": "AgentLock",
                   "url": "https://github.com/webpro255/agentlock"
+                },
+                {
+                  "label": "Arcjet Python SDK (hosted rules send inputs, require key; core fail-open, helpers fail-closed; configure tool coverage)",
+                  "url": "https://github.com/arcjet/arcjet-py"
                 }
               ],
               "metrics": {
@@ -1610,6 +1783,10 @@
                 {
                   "label": "mcp-context-protector",
                   "url": "https://github.com/trailofbits/mcp-context-protector"
+                },
+                {
+                  "label": "Claude PostToolUse hook sample (pattern warnings; not isolation or guaranteed context cleanup)",
+                  "url": "https://github.com/lasso-security/claude-hooks"
                 }
               ],
               "metrics": {
@@ -1704,6 +1881,10 @@
                 {
                   "label": "defenseclaw",
                   "url": "https://github.com/cisco-ai-defense/defenseclaw"
+                },
+                {
+                  "label": "agents-sandbox launcher for microsandbox (GPL-3.0)",
+                  "url": "https://github.com/inoio/agents-sandbox"
                 }
               ],
               "metrics": {
@@ -1935,6 +2116,14 @@
                 {
                   "label": "microsandbox",
                   "url": "https://github.com/superradcompany/microsandbox"
+                },
+                {
+                  "label": "EdgeBox desktop sandbox (GPL-3.0; README recommends a successor; escape resistance unverified)",
+                  "url": "https://github.com/BIGPPWONG/EdgeBox"
+                },
+                {
+                  "label": "Ephemeral cooperative workspace isolation (shared sandbox/provider trust; not hostile-tenant containment)",
+                  "url": "https://github.com/Ephemeral-AI-Lab/ephemeral-sandbox"
                 }
               ],
               "metrics": {
@@ -2540,6 +2729,67 @@
       "intro": "Tools for securing model artifacts, serialized ML files, AI/ML supply-chain surfaces, and malicious-package detection datasets/benchmarks.",
       "entries": [
         {
+          "name": "MindArmour",
+          "repo": "mindspore-ai/mindarmour",
+          "org": "MindSpore",
+          "status": [
+            "open_source"
+          ],
+          "license": "Apache-2.0",
+          "flags": [
+            "research",
+            "model_dependent",
+            "heavy_runtime",
+            "authorized_testing_only"
+          ],
+          "desc": "MindSpore toolkit for adversarial robustness and model-privacy research, including gradient-based targeted and untargeted attacks.",
+          "note": "**Caveat:** requires a compatible MindSpore, hardware, model, and dataset stack; package metadata points to Gitee for source and issue tracking. Model-specific evaluations are not robustness guarantees.",
+          "metrics": {
+            "stars": 92,
+            "updated": "2026-02-25",
+            "snapshot": "2026-10-05"
+          }
+        },
+        {
+          "name": "FedREDefense",
+          "repo": "xyq7/FedREDefense",
+          "status": [
+            "open_source"
+          ],
+          "license": "Apache-2.0",
+          "flags": [
+            "research",
+            "model_dependent",
+            "heavy_runtime",
+            "authorized_testing_only"
+          ],
+          "desc": "ICML 2024 research implementation of federated-learning model-poisoning defense using reconstruction error of client updates.",
+          "note": "**Caveat:** an experimental training/evaluation pipeline, not a production federation security layer; GPU, datasets, and attack configuration affect results. Consult the published erratum for the FLTrust baseline rather than copying the original comparison figures.",
+          "metrics": {
+            "stars": 31,
+            "updated": "2026-09-16",
+            "snapshot": "2026-10-05"
+          },
+          "related": [
+            {
+              "label": "FLDetector poisoning-detection research (historical; no root license, legacy MXNet 1.9.1)",
+              "url": "https://github.com/zaixizhang/FLDetector"
+            },
+            {
+              "label": "FL-WBC client-side poisoning defense (historical; no root license, legacy PyTorch 1.2)",
+              "url": "https://github.com/jeremy313/FL-WBC"
+            },
+            {
+              "label": "NDSS21 model-poisoning research (historical; no root license, legacy datasets/frameworks)",
+              "url": "https://github.com/vrt1shjwlkr/NDSS21-Model-Poisoning"
+            },
+            {
+              "label": "ModelPoisoning FL research (historical; no root license, legacy TensorFlow 1.8)",
+              "url": "https://github.com/inspire-group/ModelPoisoning"
+            }
+          ]
+        },
+        {
           "name": "ModelAudit",
           "repo": "promptfoo/modelaudit",
           "org": "Promptfoo",
@@ -2618,6 +2868,18 @@
             {
               "label": "PrivacyRaven",
               "url": "https://github.com/trailofbits/PrivacyRaven"
+            },
+            {
+              "label": "XLab adversarial-ML course (incomplete sections; no root license, external models/cloud Colab)",
+              "url": "https://github.com/zroe1/xlab-ai-security"
+            },
+            {
+              "label": "Machine Learning Security course (no root license; separate dependencies/datasets)",
+              "url": "https://github.com/unica-mlsec/mlsec"
+            },
+            {
+              "label": "OWASP ML Security Top 10 (CC BY-SA 4.0 risk reference, not certification)",
+              "url": "https://github.com/OWASP/www-project-machine-learning-security-top-10"
             }
           ],
           "metrics": {
@@ -3225,6 +3487,10 @@
             {
               "label": "HexStrike-AI",
               "url": "https://github.com/0x4m4/hexstrike-ai"
+            },
+            {
+              "label": "Burp MCP workflow helpers (Burp/Claude required; payloads and tokens may enter model context)",
+              "url": "https://github.com/SnailSploit/Burp-MCP-Security-Analysis-Toolkit"
             }
           ],
           "metrics": {
@@ -3981,6 +4247,35 @@
           "title": "Defensive Trained-Model Detectors",
           "entries": [
             {
+              "name": "open-appsec",
+              "repo": "openappsec/openappsec",
+              "status": [
+                "open_source",
+                "commercial_open"
+              ],
+              "license": "Apache-2.0 (code/basic model); separate advanced-model license",
+              "flags": [
+                "license_caveat",
+                "commercial_features",
+                "model_dependent",
+                "heavy_runtime",
+                "telemetry"
+              ],
+              "desc": "ML-based web application and API firewall combining an offline-trained model with environment-specific traffic learning and block/log decisions.",
+              "note": "**Caveat:** the bundled Apache-2.0 basic model is recommended for monitor/test use; the production-oriented advanced model is a separate portal download with its own terms. Review standalone versus SaaS management, telemetry/data flows, and deployment privileges such as host IPC; detection claims are not a security guarantee.",
+              "metrics": {
+                "stars": 1718,
+                "updated": "2026-09-01",
+                "snapshot": "2026-10-05"
+              },
+              "related": [
+                {
+                  "label": "Open-appsec HTTP attachment (requires separate agent/models/configuration; review their terms)",
+                  "url": "https://github.com/openappsec/attachment"
+                }
+              ]
+            },
+            {
               "name": "DeepSQLi",
               "repo": "gatewayd-io/DeepSQLi",
               "org": "GatewayD",
@@ -4035,6 +4330,24 @@
       "anchor": "ai-powered-sast--secure-code-review",
       "intro": "Static analysis and secure code review enhanced with LLMs.",
       "entries": [
+        {
+          "name": "Symfony Security Auditor",
+          "repo": "vinceAmstoutz/symfony-security-auditor",
+          "status": [
+            "open_source"
+          ],
+          "license": "MIT",
+          "flags": [
+            "model_dependent"
+          ],
+          "desc": "Symfony-aware source-audit package with attacker/reviewer model passes, confidence filtering, baseline deduplication, and budget-bounded partial results.",
+          "note": "**Caveat:** reviewer-validated findings are model judgments, not confirmed exploitation. Offline-only mode defaults to false, so hosted providers receive selected source; local inference needs separately provisioned models. Requires PHP 8.3+ and a compatible Symfony version.",
+          "metrics": {
+            "stars": 95,
+            "updated": "2026-10-04",
+            "snapshot": "2026-10-05"
+          }
+        },
         {
           "name": "Clearwing",
           "repo": "Lazarus-AI/clearwing",
@@ -4334,6 +4647,39 @@
           }
         },
         {
+          "name": "Reproof",
+          "repo": "scadastrangelove/reproof",
+          "org": "Sergey Gordeychik",
+          "license": "Apache-2.0",
+          "desc": "Multi-language Kimi Code port of rust-in-peace, orchestrating agentic vulnerability discovery, PoC replay in fresh containers, comparison with known bugs, and patch re-testing.",
+          "status": [
+            "open_source"
+          ],
+          "flags": [
+            "early_stage",
+            "model_dependent",
+            "requires_api_key",
+            "heavy_runtime",
+            "authorized_testing_only"
+          ],
+          "note": "**Caveat:** newly published, maintainer-authored project; benchmark results are project-reported, not independently reproduced here. The autonomous pipeline executes target code and generated PoCs; use the documented Linux/Docker/gVisor setup on authorized targets. The configured model provider receives source and execution context and may incur costs; review generated patches and sensitive findings before use or disclosure.",
+          "related": [
+            {
+              "label": "rust-in-peace",
+              "url": "https://github.com/scadastrangelove/rust-in-peace"
+            },
+            {
+              "label": "defending-code-reference-harness",
+              "url": "https://github.com/anthropics/defending-code-reference-harness"
+            }
+          ],
+          "metrics": {
+            "stars": 1,
+            "updated": "2026-10-05",
+            "snapshot": "2026-10-05"
+          }
+        },
+        {
           "name": "claude-code-security-review",
           "repo": "anthropics/claude-code-security-review",
           "org": "Anthropic",
@@ -4376,6 +4722,10 @@
             {
               "label": "llm-sast-scanner",
               "url": "https://github.com/SunWeb3Sec/llm-sast-scanner"
+            },
+            {
+              "label": "AWS MCP code-scanning sample (external scanners; not MCP protocol analysis)",
+              "url": "https://github.com/aws-samples/sample-mcp-security-scanner"
             }
           ],
           "metrics": {
@@ -4465,6 +4815,14 @@
             {
               "label": "Claude-BugHunter",
               "url": "https://github.com/elementalsouls/Claude-BugHunter"
+            },
+            {
+              "label": "Claude Code cybersecurity skills (host permissions govern execution)",
+              "url": "https://github.com/Masriyan/Claude-Code-CyberSecurity-Skill"
+            },
+            {
+              "label": "Defensive Claude Code playbooks (host/model-dependent; production claims unverified)",
+              "url": "https://github.com/GoldenWing-360/claude-security-skills"
             }
           ],
           "metrics": {
@@ -4833,10 +5191,11 @@
                 }
               ],
               "metrics": {
-                "stars": 231,
-                "updated": "2026-07-13",
-                "snapshot": "2026-08-17"
-              }
+                "stars": 263,
+                "updated": "2026-09-11",
+                "snapshot": "2026-10-05"
+              },
+              "license": "Apache-2.0"
             },
             {
               "name": "promptmap",
@@ -5751,6 +6110,89 @@
           "title": "Scanners, Evals & Guardrails",
           "entries": [
             {
+              "name": "DrAttack",
+              "repo": "xirui-li/DrAttack",
+              "status": [
+                "open_source"
+              ],
+              "license": "MIT",
+              "flags": [
+                "research",
+                "model_dependent",
+                "authorized_testing_only"
+              ],
+              "desc": "Research jailbreak implementation that decomposes requests, searches prompt substitutions, and evaluates target-model responses.",
+              "note": "**Caveat:** historical defaults use the old OpenAI ChatCompletion API and gpt-3.5-turbo-0613, requiring compatible dependencies or adaptation. Refusal-prefix and model-judge heuristics do not prove attack success; configured generation and embedding APIs receive research inputs.",
+              "metrics": {
+                "stars": 69,
+                "updated": "2026-09-12",
+                "snapshot": "2026-10-05"
+              }
+            },
+            {
+              "name": "RL-Hammer (rl-injector)",
+              "repo": "facebookresearch/rl-injector",
+              "org": "Meta",
+              "status": [
+                "research"
+              ],
+              "license": "CC-BY-NC-4.0",
+              "flags": [
+                "noncommercial",
+                "heavy_runtime",
+                "model_dependent",
+                "authorized_testing_only"
+              ],
+              "desc": "Research training pipeline for prompt-injection attacker models, with InjecAgent tool-response substitution and target-based reward computation.",
+              "note": "**Caveat:** noncommercial code; GPU resources, models, and data are separate dependencies. Hosted targets receive attack contexts, and the reviewed tokenizer path enables trust_remote_code, so model repositories require separate review. Published outcomes are not independently reproduced here.",
+              "metrics": {
+                "stars": 57,
+                "updated": "2025-11-24",
+                "snapshot": "2026-10-05"
+              }
+            },
+            {
+              "name": "Prompt Injection as Role Confusion",
+              "repo": "role-confusion/prompt-injection-as-role-confusion",
+              "status": [
+                "open_source"
+              ],
+              "license": "MIT text (copyright header absent)",
+              "flags": [
+                "research",
+                "license_caveat",
+                "model_dependent",
+                "heavy_runtime",
+                "authorized_testing_only"
+              ],
+              "desc": "Research code for probing role representations and studying prompt injection through confusion between instruction and data roles.",
+              "note": "**Caveat:** the root license contains the MIT permission text without a copyright header. Experiments require compatible model weights and GPU resources; some configurations are marked untested, and API-backed paths disclose inputs to providers. This is not a production guardrail.",
+              "metrics": {
+                "stars": 134,
+                "updated": "2026-05-31",
+                "snapshot": "2026-10-05"
+              }
+            },
+            {
+              "name": "GuidedBench",
+              "repo": "SproutNan/GuidedBench",
+              "status": [
+                "open_source"
+              ],
+              "license": "Apache-2.0 (code)",
+              "flags": [
+                "research",
+                "model_dependent"
+              ],
+              "desc": "Guideline-grounded jailbreak evaluator that scores saved model responses against case-specific criteria using configurable judge backends.",
+              "note": "**Caveat:** the bundled dataset integration is gated and needs approval/HF_TOKEN; dataset and model terms are separate from the code license. Judge models can disagree or fail, and hosted backends receive evaluated content; this is an evaluator, not an attack generator or ground-truth oracle.",
+              "metrics": {
+                "stars": 32,
+                "updated": "2026-08-31",
+                "snapshot": "2026-10-05"
+              }
+            },
+            {
               "name": "OpenART",
               "repo": "AI45Lab/OpenART",
               "status": ["open_source", "research"],
@@ -5892,7 +6334,13 @@
                 "stars": 4316,
                 "updated": "2026-08-14",
                 "snapshot": "2026-08-17"
-              }
+              },
+              "related": [
+                {
+                  "label": "Arcanum prompt-injection taxonomy (CC BY 4.0 reference, not a detector)",
+                  "url": "https://github.com/Arcanum-Sec/arc_pi_taxonomy"
+                }
+              ]
             },
             {
               "name": "promptfoo",
@@ -5906,7 +6354,13 @@
                 "stars": 24302,
                 "updated": "2026-08-17",
                 "snapshot": "2026-08-17"
-              }
+              },
+              "related": [
+                {
+                  "label": "Promptfoo CI Action (checkout evaluation, not base/head diff; defaults to latest, sharing possible; review permissions/data policy)",
+                  "url": "https://github.com/promptfoo/promptfoo-action"
+                }
+              ]
             },
             {
               "name": "Augustus",
@@ -6087,6 +6541,10 @@
                 {
                   "label": "LLM Guard",
                   "url": "https://github.com/protectai/llm-guard"
+                },
+                {
+                  "label": "Pydantic AI Shields integration (README recommends a successor)",
+                  "url": "https://github.com/vstorm-co/pydantic-ai-shields"
                 }
               ],
               "metrics": {
@@ -6149,6 +6607,10 @@
                 {
                   "label": "Rebuff",
                   "url": "https://github.com/protectai/rebuff"
+                },
+                {
+                  "label": "Pytector prompt-injection classifier integration",
+                  "url": "https://github.com/MaxMLang/pytector"
                 }
               ],
               "metrics": {
@@ -6193,7 +6655,17 @@
                 "stars": 6965,
                 "updated": "2026-08-17",
                 "snapshot": "2026-08-17"
-              }
+              },
+              "related": [
+                {
+                  "label": "Backtranslation-defense reproduction (historical; legacy FastChat/GPU and model judges, separate bundled-code terms)",
+                  "url": "https://github.com/YihanWang617/LLM-Jailbreaking-Defense-Backtranslation"
+                },
+                {
+                  "label": "Jailbreak-defense research library (historical; local models or OpenAI, not an authority boundary)",
+                  "url": "https://github.com/YihanWang617/llm-jailbreaking-defense"
+                }
+              ]
             },
             {
               "name": "PurpleLlama",
@@ -6322,6 +6794,10 @@
                 {
                   "label": "JailbreakBench",
                   "url": "https://github.com/JailbreakBench/jailbreakbench"
+                },
+                {
+                  "label": "JailBreakV-28K (historical benchmark; no root license, education/research scope; separate image/model terms)",
+                  "url": "https://github.com/SaFo-Lab/JailBreakV_28K"
                 }
               ],
               "metrics": {
@@ -6342,6 +6818,10 @@
                 {
                   "label": "nanoGCG",
                   "url": "https://github.com/GraySwanAI/nanoGCG"
+                },
+                {
+                  "label": "LLM embedding-attack research (white-box embeddings, not an ordinary text API)",
+                  "url": "https://github.com/SchwinnL/LLM_Embedding_Attack"
                 }
               ],
               "metrics": {
@@ -6381,7 +6861,17 @@
                 "stars": 654,
                 "updated": "2025-03-31",
                 "snapshot": "2026-08-17"
-              }
+              },
+              "related": [
+                {
+                  "label": "MEGA security evaluation artifacts (limited vendor-run experiments, not independent rankings)",
+                  "url": "https://github.com/mega-edo/mega-security-leaderboard"
+                },
+                {
+                  "label": "Chasing Shadows evaluation-methodology artifacts (external data/models; some API/GPU experiments)",
+                  "url": "https://github.com/Dormant-Neurons/llm-pitfalls"
+                }
+              ]
             },
             {
               "name": "Open-Prompt-Injection",
@@ -6395,7 +6885,13 @@
                 "stars": 479,
                 "updated": "2025-10-29",
                 "snapshot": "2026-08-17"
-              }
+              },
+              "related": [
+                {
+                  "label": "PromptInject (historical prompt-injection research)",
+                  "url": "https://github.com/agencyenterprise/PromptInject"
+                }
+              ]
             },
             {
               "name": "PINT Benchmark",
@@ -6418,6 +6914,10 @@
                 {
                   "label": "Prompt Guard 86M",
                   "url": "https://huggingface.co/meta-llama/Prompt-Guard-86M"
+                },
+                {
+                  "label": "Tensor Trust game/data tooling (historical; separate data, dependencies and deployment need review)",
+                  "url": "https://github.com/HumanCompatibleAI/tensor-trust"
                 }
               ],
               "metrics": {
@@ -6493,7 +6993,25 @@
                 "stars": 2128,
                 "updated": "2025-07-17",
                 "snapshot": "2026-08-17"
-              }
+              },
+              "related": [
+                {
+                  "label": "Dropbox LLM extraction research (historical code and results)",
+                  "url": "https://github.com/dropbox/llm-security"
+                },
+                {
+                  "label": "PIPE threat-model primer (2023 reference, not current API guidance; no root license)",
+                  "url": "https://github.com/jthack/PIPE"
+                },
+                {
+                  "label": "HouYi (historical prompt-injection research)",
+                  "url": "https://github.com/LLMSecurity/HouYi"
+                },
+                {
+                  "label": "RAG poisoning teaching PoC (AGPL-3.0; embedding weights/model endpoint required; not a benchmark)",
+                  "url": "https://github.com/prompt-security/RAG_Poisoning_POC"
+                }
+              ]
             },
             {
               "name": "JailbreakLLMs",
@@ -6626,6 +7144,10 @@
                 {
                   "label": "promptfoo",
                   "url": "https://github.com/promptfoo/promptfoo"
+                },
+                {
+                  "label": "Invisible prompt-injection fixtures (hidden-content samples)",
+                  "url": "https://github.com/bountyyfi/invisible-prompt-injection"
                 }
               ],
               "metrics": {
@@ -6810,6 +7332,10 @@
                 {
                   "label": "AgentDojo",
                   "url": "https://github.com/ethz-spylab/agentdojo"
+                },
+                {
+                  "label": "Agent-security lecture demos (no root license; CaMeL and external models required)",
+                  "url": "https://github.com/anishathalye/ai-agent-security-lecture"
                 }
               ],
               "metrics": {
@@ -6842,6 +7368,14 @@
                 {
                   "label": "Meta SecAlign models",
                   "url": "https://huggingface.co/meta-llama"
+                },
+                {
+                  "label": "SecAlign (historical predecessor; CC BY-NC 4.0, noncommercial)",
+                  "url": "https://github.com/facebookresearch/SecAlign"
+                },
+                {
+                  "label": "StruQ predecessor research (CC BY-NC 4.0; trained models/GPU, OpenAI utility evaluation)",
+                  "url": "https://github.com/Sizhe-Chen/StruQ"
                 }
               ],
               "metrics": {
@@ -7170,6 +7704,46 @@
       "intro": "Offensive agents and the benchmarks used to evaluate them.",
       "entries": [
         {
+          "name": "OWASP PromptMe",
+          "repo": "OWASP/www-project-promptme",
+          "org": "OWASP",
+          "status": [
+            "open_source"
+          ],
+          "license": "Apache-2.0",
+          "flags": [
+            "model_dependent",
+            "heavy_runtime",
+            "authorized_testing_only"
+          ],
+          "desc": "Intentionally vulnerable Flask/Ollama lab with hands-on challenges based on OWASP LLM risks.",
+          "note": "**Caveat:** use a disposable isolated environment without real data: examples bind to all interfaces, contain known training secrets, fetch URLs, and deliberately include fail-open behavior. Ollama and model weights are separate dependencies.",
+          "metrics": {
+            "stars": 43,
+            "updated": "2026-09-10",
+            "snapshot": "2026-10-05"
+          }
+        },
+        {
+          "name": "Sherpa",
+          "repo": "Azure-Samples/sherpa",
+          "org": "Microsoft Azure Samples",
+          "status": [
+            "open_source"
+          ],
+          "license": "MIT",
+          "flags": [
+            "authorized_testing_only"
+          ],
+          "desc": "Hands-on MCP security lab pairing vulnerable and hardened sample servers with authentication and authorization exercises.",
+          "note": "**Caveat:** use an isolated teaching environment; demonstration tokens and fixed identities are not production authentication. Azure-backed exercises require appropriate account permissions and may incur costs; sample fixes are not a complete application-security boundary.",
+          "metrics": {
+            "stars": 29,
+            "updated": "2026-09-14",
+            "snapshot": "2026-10-05"
+          }
+        },
+        {
           "name": "ExploitGym",
           "repo": "sunblaze-ucb/exploitgym",
           "status": [
@@ -7237,7 +7811,21 @@
             "stars": 53,
             "updated": "2026-09-20",
             "snapshot": "2026-09-21"
-          }
+          },
+          "related": [
+            {
+              "label": "Vulnerable agent samples (CC BY-SA 4.0; isolated lab use, separate APIs/models)",
+              "url": "https://github.com/GenAI-Security-Project/GenAI-Agent-Security-Initiative"
+            },
+            {
+              "label": "Aembit agent-security control samples (teaching examples, not a production platform)",
+              "url": "https://github.com/Aembit/agentic-ai-security-starter-kit"
+            },
+            {
+              "label": "GenAI training labs (CC BY-NC notice plus government-use restriction; commercial/government reuse requires permission)",
+              "url": "https://github.com/schwartz1375/genai-security-training"
+            }
+          ]
         },
         {
           "name": "SWE-agent (EnIGMA)",
@@ -7712,6 +8300,22 @@
       "intro": "AI tooling for cloud/IaC security, digital forensics, OSINT, and phishing detection.",
       "entries": [
         {
+          "name": "AWS AI/ML Security Assessment",
+          "repo": "aws-samples/sample-aiml-security-assessment",
+          "org": "AWS Samples",
+          "status": [
+            "open_source"
+          ],
+          "license": "MIT-0",
+          "desc": "Security-posture assessment of AWS AI/ML services, including Bedrock, SageMaker, and AgentCore configurations.",
+          "note": "**Caveat:** requires AWS IAM permissions and deployed resources, with possible service costs; reports can expose sensitive infrastructure details. A configured prompt-attack filter is not evidence of attack resistance, and standards mappings are not compliance certification.",
+          "metrics": {
+            "stars": 47,
+            "updated": "2026-10-04",
+            "snapshot": "2026-10-05"
+          }
+        },
+        {
           "name": "AIFT",
           "repo": "FlipForensics/AIFT",
           "status": [
@@ -7948,6 +8552,182 @@
       "title": "Related Awesome Lists",
       "anchor": "related-awesome-lists",
       "entries": [
+        {
+          "kind": "awesome_list",
+          "name": "Jailbreak Observatory",
+          "repo": "GenggengSvan/Jailbreak-Observatory",
+          "desc": "Classified bibliography and visualizations of LLM jailbreak research; no root license was found, and publication labels are not independently verified.",
+          "metrics": {
+            "stars": 23,
+            "updated": "2026-10-01",
+            "snapshot": "2026-10-05"
+          }
+        },
+        {
+          "kind": "awesome_list",
+          "name": "Awesome Agentic Security",
+          "repo": "kagnlp/Awesome-Agentic-Security",
+          "desc": "Survey bibliography covering agent attacks, defenses, and security applications; an MIT badge is present but no root license file was found.",
+          "metrics": {
+            "stars": 57,
+            "updated": "2026-08-24",
+            "snapshot": "2026-10-05"
+          }
+        },
+        {
+          "kind": "awesome_list",
+          "name": "Awesome LLMSecOps",
+          "repo": "wearetyomsmnv/Awesome-LLMSecOps",
+          "desc": "Resource directory covering LLM architecture, operations, threat modeling, and security; no root license was found.",
+          "metrics": {
+            "stars": 162,
+            "updated": "2026-09-27",
+            "snapshot": "2026-10-05"
+          }
+        },
+        {
+          "kind": "awesome_list",
+          "name": "Awesome GenAI Security",
+          "repo": "jassics/awesome-genai-security",
+          "desc": "GPL-3.0 collection of GenAI and agentic-security references, tutorials, labs, and testing resources; linked artifacts retain their own terms.",
+          "metrics": {
+            "stars": 78,
+            "updated": "2026-09-29",
+            "snapshot": "2026-10-05"
+          }
+        },
+        {
+          "kind": "awesome_list",
+          "name": "Awesome Hacking with AI",
+          "repo": "frangelbarrera/Awesome-Hacking-with-AI",
+          "desc": "Directory of AI-assisted security and AI-system security resources covering agent safety, MCP, red teaming, and detection engineering; linked projects require separate review.",
+          "metrics": {
+            "stars": 28,
+            "updated": "2026-10-02",
+            "snapshot": "2026-10-05"
+          }
+        },
+        {
+          "kind": "awesome_list",
+          "name": "AI/ML Security and Prompt-Injection Resources",
+          "repo": "anmolksachan/AI-ML-Free-Resources-for-Security-and-Prompt-Injection",
+          "desc": "AI-security learning roadmap and resource directory that distinguishes historical and unverified material; no root license was found.",
+          "metrics": {
+            "stars": 801,
+            "updated": "2026-09-19",
+            "snapshot": "2026-10-05"
+          }
+        },
+        {
+          "kind": "awesome_list",
+          "name": "Awesome AI Security TR",
+          "repo": "fevziegeyurtsevenler/awesome-ai-security-tr",
+          "desc": "Turkish-language annotated directory of prompt-injection, red-teaming, guardrail, agent, MCP, and RAG security resources under CC BY 4.0; link checks do not validate security claims.",
+          "metrics": {
+            "stars": 13,
+            "updated": "2026-08-28",
+            "snapshot": "2026-10-05"
+          }
+        },
+        {
+          "kind": "awesome_list",
+          "name": "Awesome Prompt Injection",
+          "repo": "Joe-B-Security/awesome-prompt-injection",
+          "desc": "CC0 resource list focused on prompt injection and related machine-learning security references.",
+          "metrics": {
+            "stars": 666,
+            "updated": "2026-09-11",
+            "snapshot": "2026-10-05"
+          }
+        },
+        {
+          "kind": "awesome_list",
+          "name": "Awesome AI Red Teaming JP",
+          "repo": "HayatoFujihara/awesome-ai-red-teaming-jp",
+          "desc": "CC0 collection of Japanese-language AI red-teaming and safety resources.",
+          "metrics": {
+            "stars": 13,
+            "updated": "2026-06-20",
+            "snapshot": "2026-10-05"
+          }
+        },
+        {
+          "kind": "awesome_list",
+          "name": "Arcanum AI Security Resources",
+          "repo": "Arcanum-Sec/ai-sec-resources",
+          "desc": "Categorized directory of AI-security labs and competitions; no root license was found, and external availability or free access is not guaranteed.",
+          "metrics": {
+            "stars": 513,
+            "updated": "2026-07-03",
+            "snapshot": "2026-10-05"
+          }
+        },
+        {
+          "kind": "awesome_list",
+          "name": "Awesome Agentic MCP Security",
+          "repo": "mcp-security-project/awesome-agentic-mcp-security",
+          "desc": "CC0 collection of agentic-AI and MCP security resources.",
+          "metrics": {
+            "stars": 21,
+            "updated": "2026-09-26",
+            "snapshot": "2026-10-05"
+          }
+        },
+        {
+          "kind": "awesome_list",
+          "name": "Awesome Agent Sandbox",
+          "repo": "fishman/awesome-agent-sandbox",
+          "desc": "Directory of agent sandbox runtimes and comparisons; no root license was found, and performance or security comparisons are not independently verified.",
+          "metrics": {
+            "stars": 18,
+            "updated": "2026-07-07",
+            "snapshot": "2026-10-05"
+          }
+        },
+        {
+          "kind": "awesome_list",
+          "name": "Awesome Agent Sandboxes",
+          "repo": "arjan/awesome-agent-sandboxes",
+          "desc": "Directory of self-hosted and cloud code-execution sandboxes for AI agents; no root license was found, and listed products offer differing isolation boundaries.",
+          "metrics": {
+            "stars": 49,
+            "updated": "2026-08-19",
+            "snapshot": "2026-10-05"
+          }
+        },
+        {
+          "kind": "awesome_list",
+          "name": "Awesome LM Safety, Security, and Privacy",
+          "repo": "CryptoAILab/Awesome-LM-SSP",
+          "desc": "Apache-2.0 bibliography of language and multimodal model safety, security, and privacy research; linked publications, models, and datasets retain their own licenses.",
+          "metrics": {
+            "stars": 2082,
+            "updated": "2026-09-02",
+            "snapshot": "2026-10-05"
+          }
+        },
+        {
+          "kind": "awesome_list",
+          "name": "Awesome AI Security (DeepSpaceHarbor)",
+          "repo": "DeepSpaceHarbor/Awesome-AI-Security",
+          "desc": "Historical collection of adversarial examples, evasion, poisoning, and ML-security research code; no root license was found, and recent commits do not establish the currency of linked material.",
+          "metrics": {
+            "stars": 1680,
+            "updated": "2026-03-08",
+            "snapshot": "2026-10-05"
+          }
+        },
+        {
+          "kind": "awesome_list",
+          "name": "Awesome LLM Agent Security",
+          "repo": "wearetyomsmnv/Awesome-LLM-agent-Security",
+          "desc": "Unlicense bibliography of LLM-agent security research, attacks, and vulnerabilities; linked papers and code retain their own terms.",
+          "metrics": {
+            "stars": 58,
+            "updated": "2026-07-11",
+            "snapshot": "2026-10-05"
+          }
+        },
         {
           "kind": "awesome_list",
           "name": "Awesome MLLM/LLM Guardrails",
