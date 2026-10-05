@@ -144,6 +144,30 @@
           "title": "Scanners & Auditors",
           "entries": [
             {
+              "name": "Geiger",
+              "repo": "Atomburstofficial/geiger",
+              "status": [
+                "open_source"
+              ],
+              "license": "MIT",
+              "flags": [
+                "early_stage"
+              ],
+              "desc": "Local CLI that inventories AI-agent installations, MCP configurations, hooks, and extensions, and reports credential-shaped values and configuration drift.",
+              "note": "**Caveat:** configuration inventory, not runtime monitoring or enforcement; exposure labels are heuristics, and coverage depends on known locations and readable files. Detector errors can leave gaps even when the strict-mode exit code is clean; explicit report options write local files.",
+              "metrics": {
+                "stars": 158,
+                "updated": "2026-09-21",
+                "snapshot": "2026-10-05"
+              },
+              "sources": [
+                {
+                  "label": "Reviewed scan engine",
+                  "url": "https://github.com/Atomburstofficial/geiger/blob/f8b8edbdbd18c3714022a2f5f84707f78a03006f/src/engine.js"
+                }
+              ]
+            },
+            {
               "name": "Guardana",
               "repo": "guardana/guardana",
               "status": [
@@ -1258,6 +1282,65 @@
         {
           "title": "Runtime Protection & Enforcement",
           "entries": [
+            {
+              "name": "OpenAPPA",
+              "repo": "archestra-ai/OpenAPPA",
+              "org": "Archestra",
+              "status": [
+                "open_source"
+              ],
+              "license": "MIT",
+              "flags": [
+                "early_stage",
+                "model_dependent"
+              ],
+              "desc": "Rust information-flow policy engine and agent-tool runtime that tracks trajectory labels and effects and binds approvals to actions using recorded events.",
+              "note": "**Caveat:** preview/RFC with evolving interfaces. Policy evaluation is deterministic for fixed policy and recorded evidence, not for whole-agent behavior; protection requires correct tool contracts, trusted labels, and complete mediation. Configured annotation authorities may use LLMs, and project-run benchmarks do not establish universal prompt-injection or exfiltration prevention.",
+              "metrics": {
+                "stars": 1427,
+                "updated": "2026-10-05",
+                "snapshot": "2026-10-05"
+              },
+              "sources": [
+                {
+                  "label": "Reviewed policy checks",
+                  "url": "https://github.com/archestra-ai/OpenAPPA/blob/85465feb8214f662dd21d40df2c01964e5b099fa/appa-engine/src/check.rs"
+                },
+                {
+                  "label": "Recorded-state projection",
+                  "url": "https://github.com/archestra-ai/OpenAPPA/blob/85465feb8214f662dd21d40df2c01964e5b099fa/appa-engine/src/projection.rs"
+                }
+              ]
+            },
+            {
+              "name": "Vetto",
+              "repo": "shleder/vetto",
+              "status": [
+                "open_source"
+              ],
+              "license": "Apache-2.0",
+              "flags": [
+                "early_stage",
+                "telemetry"
+              ],
+              "desc": "Rust command wrapper that applies native OS containment to coding-agent subprocesses through Linux Landlock/namespaces and platform-specific sandbox backends.",
+              "note": "**Caveat:** guarantees vary by OS and selected tier: Linux FULL requires kernel support, while FS-ONLY lacks mount/PID/network namespaces and has descendant-cleanup limits. Allowed paths, environment values, and network destinations remain agent capabilities; this is not semantic prompt-injection protection. Optional telemetry is opt-in, and release binaries and escape resistance were not independently verified.",
+              "metrics": {
+                "stars": 45,
+                "updated": "2026-10-05",
+                "snapshot": "2026-10-05"
+              },
+              "sources": [
+                {
+                  "label": "Reviewed threat model",
+                  "url": "https://github.com/shleder/vetto/blob/0335a49d5b90507d4ce90f71e82a133b4d946d8a/docs/threat-model.md"
+                },
+                {
+                  "label": "Telemetry configuration",
+                  "url": "https://github.com/shleder/vetto/blob/0335a49d5b90507d4ce90f71e82a133b4d946d8a/docs/telemetry.md"
+                }
+              ]
+            },
             {
               "name": "Spring MCP Security",
               "repo": "spring-ai-community/mcp-security",
@@ -8552,6 +8635,18 @@
       "title": "Related Awesome Lists",
       "anchor": "related-awesome-lists",
       "entries": [
+        {
+          "kind": "awesome_list",
+          "name": "Awesome GUI Agent Security",
+          "repo": "Yuxuan2003/Awesome-GUI-Agent-Security",
+          "license": "MIT",
+          "desc": "Focused bibliography of GUI, computer-use, and browser-agent security research, organized by attack surface and defense layer with Chinese-language annotations.",
+          "metrics": {
+            "stars": 73,
+            "updated": "2026-10-03",
+            "snapshot": "2026-10-05"
+          }
+        },
         {
           "kind": "awesome_list",
           "name": "Jailbreak Observatory",
